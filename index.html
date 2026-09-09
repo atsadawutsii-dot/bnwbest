@@ -1,1 +1,718 @@
-<p>hhehehehe hi</p>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio | อัษฎาวุธ ศิริวิมลกุล</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: #f4f8fb;
+            color: #263238;
+            line-height: 1.6;
+        }
+
+        /* ===== Navbar ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #168aad;
+        }
+
+        .logo span {
+            color: #52b788;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #455a64;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #168aad;
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 25px 60px;
+            background:
+                radial-gradient(circle at 80% 20%, #d9f3ff 0, transparent 30%),
+                radial-gradient(circle at 10% 80%, #dcfce7 0, transparent 30%),
+                #f4f8fb;
+        }
+
+        .hero-container {
+            max-width: 1100px;
+            width: 100%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 7px 15px;
+            background: #e0f7fa;
+            color: #168aad;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 70px);
+            line-height: 1.1;
+            margin-bottom: 18px;
+            color: #1f2933;
+        }
+
+        .hero h1 span {
+            color: #168aad;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #607d8b;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #168aad;
+            color: white;
+            box-shadow: 0 8px 20px rgba(22,138,173,0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: #126782;
+        }
+
+        .btn-outline {
+            border: 2px solid #168aad;
+            color: #168aad;
+        }
+
+        .btn-outline:hover {
+            background: #e0f7fa;
+        }
+
+        /* ===== Profile Image ===== */
+        .profile-wrapper {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .profile-card {
+            width: 330px;
+            height: 390px;
+            background: white;
+            border-radius: 25px;
+            padding: 15px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            transform: rotate(2deg);
+            transition: 0.4s;
+        }
+
+        .profile-card:hover {
+            transform: rotate(0deg) translateY(-8px);
+        }
+
+        .profile-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        /* ===== Sections ===== */
+        section {
+            padding: 90px 25px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: #168aad;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-top: 5px;
+            color: #263238;
+        }
+
+        /* ===== About ===== */
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .about-box {
+            padding: 30px;
+            border-radius: 18px;
+            background: #f5fafc;
+            border: 1px solid #e3eef2;
+        }
+
+        .about-box h3 {
+            margin-bottom: 15px;
+            color: #168aad;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e5edf0;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* ===== Skills ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .skill-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 8px;
+            color: #168aad;
+        }
+
+        .skill-card p {
+            color: #78909c;
+        }
+
+        /* ===== Hobbies ===== */
+        .hobbies {
+            background: white;
+        }
+
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .hobby-card {
+            padding: 35px;
+            border-radius: 20px;
+            background: #f4fafb;
+            border: 1px solid #e1edf0;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .hobby-icon {
+            width: 75px;
+            height: 75px;
+            border-radius: 18px;
+            background: #dff6f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            flex-shrink: 0;
+        }
+
+        .hobby-card h3 {
+            color: #168aad;
+        }
+
+        .hobby-card p {
+            color: #78909c;
+        }
+
+        /* ===== Contact ===== */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-card {
+            max-width: 700px;
+            margin: auto;
+            padding: 45px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.07);
+        }
+
+        .email {
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 20px;
+            color: #168aad;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: #263238;
+            color: #cfd8dc;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer span {
+            color: #62c4d4;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .profile-wrapper {
+                order: -1;
+            }
+
+            .profile-card {
+                width: 260px;
+                height: 310px;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .hobby-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">A<span>.</span>Portfolio</div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+
+            <div>
+                <div class="tag">👋 Welcome to my portfolio</div>
+
+                <h1>
+                    สวัสดีครับ ผม<br>
+                    <span>อัษฎาวุธ ศิริวิมลกุล</span>
+                </h1>
+
+                <p>
+                    นักศึกษาคณะเทคโนโลยีสารสนเทศ
+                    สาขานวัตกรรมธุรกิจดิจิทัล
+                    ผู้ที่สนใจด้าน Web Development
+                    และเทคโนโลยีดิจิทัล
+                </p>
+
+                <div class="buttons">
+                    <a href="#about" class="btn btn-primary">
+                        รู้จักผมมากขึ้น
+                    </a>
+
+                    <a href="#contact" class="btn btn-outline">
+                        ติดต่อผม
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="profile-wrapper">
+                <div class="profile-card">
+
+                    <!-- รูปโปรไฟล์ -->
+                    <img
+                        src="https://t4.ftcdn.net/jpg/02/11/25/91/360_F_211259199_n0LBMIpx3FGIsKjqQHt7g8u3pjH2i9OL.jpg"
+                        alt="รูปโปรไฟล์ อัษฎาวุธ ศิริวิมลกุล"
+                    >
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- About -->
+    <section class="about" id="about">
+
+        <div class="container">
+
+            <div class="section-title">
+                <small>ABOUT ME</small>
+                <h2>เกี่ยวกับฉัน</h2>
+            </div>
+
+            <div class="about-grid">
+
+                <div class="about-box">
+                    <h3>👨‍💻 ตัวตนของผม</h3>
+
+                    <p>
+                        ผมชื่อ นายอัษฎาวุธ ศิริวิมลกุล
+                        เป็นนักศึกษาคณะเทคโนโลยีสารสนเทศ
+                        สาขานวัตกรรมธุรกิจดิจิทัล
+                    </p>
+
+                    <br>
+
+                    <p>
+                        ผมมีความสนใจในการพัฒนาเว็บไซต์
+                        และการนำเทคโนโลยีมาสร้างสรรค์
+                        ผลงานหรือไอเดียใหม่ ๆ
+                    </p>
+                </div>
+
+
+                <div class="about-box">
+                    <h3>📌 ข้อมูลส่วนตัว</h3>
+
+                    <ul class="info-list">
+                        <li>
+                            <strong>ชื่อ:</strong>
+                            อัษฎาวุธ ศิริวิมลกุล
+                        </li>
+
+                        <li>
+                            <strong>คณะ:</strong>
+                            เทคโนโลยีสารสนเทศ
+                        </li>
+
+                        <li>
+                            <strong>สาขา:</strong>
+                            นวัตกรรมธุรกิจดิจิทัล
+                        </li>
+
+                        <li>
+                            <strong>ความสนใจ:</strong>
+                            Web Development
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Skills -->
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-title">
+                <small>MY SKILLS</small>
+                <h2>ความสามารถ</h2>
+            </div>
+
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+
+                    <h3>HTML</h3>
+
+                    <p>
+                        สามารถสร้างโครงสร้าง
+                        และหน้าเว็บไซต์ด้วย HTML
+                    </p>
+                </div>
+
+
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+
+                    <h3>CSS</h3>
+
+                    <p>
+                        สามารถออกแบบหน้าเว็บไซต์
+                        ให้สวยงามและ Responsive
+                    </p>
+                </div>
+
+
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+
+                    <h3>JavaScript</h3>
+
+                    <p>
+                        สามารถเพิ่มความ Interactive
+                        และฟังก์ชันต่าง ๆ ให้เว็บไซต์
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Hobbies -->
+    <section class="hobbies" id="hobbies">
+
+        <div class="container">
+
+            <div class="section-title">
+                <small>MY HOBBIES</small>
+                <h2>งานอดิเรก</h2>
+            </div>
+
+
+            <div class="hobby-grid">
+
+                <div class="hobby-card">
+
+                    <div class="hobby-icon">
+                        🎮
+                    </div>
+
+                    <div>
+                        <h3>เล่นเกมบน PC</h3>
+
+                        <p>
+                            ชอบเล่นเกมบนคอมพิวเตอร์
+                            เพื่อความสนุกและผ่อนคลาย
+                            รวมถึงได้ฝึกการคิดวิเคราะห์
+                            และการแก้ปัญหา
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="hobby-card">
+
+                    <div class="hobby-icon">
+                        🏀
+                    </div>
+
+                    <div>
+                        <h3>เล่นบาสเกตบอล</h3>
+
+                        <p>
+                            ชอบเล่นบาสเกตบอล
+                            เพื่อออกกำลังกายและใช้เวลาว่าง
+                            รวมถึงฝึกการทำงานเป็นทีม
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <div class="section-title">
+                <small>CONTACT ME</small>
+                <h2>ติดต่อผม</h2>
+            </div>
+
+
+            <div class="contact-card">
+
+                <h3>สนใจพูดคุยหรือร่วมงานกันไหม?</h3>
+
+                <p>
+                    สามารถติดต่อผมผ่าน Email ได้เลยครับ
+                </p>
+
+                <a
+                    class="email"
+                    href="mailto:atsadawut.sii@spumail.net"
+                >
+                    📧 atsadawut.sii@spumail.net
+                </a>
+
+                <br>
+
+                <a
+                    href="mailto:atsadawut.sii@spumail.net"
+                    class="btn btn-primary"
+                >
+                    ส่ง Email
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026
+            <span>อัษฎาวุธ ศิริวิมลกุล</span>
+            | Digital Business Innovation
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        // แสดงข้อความเมื่อกดปุ่ม Email
+        const emailButton = document.querySelectorAll(
+            'a[href^="mailto:"]'
+        );
+
+        emailButton.forEach(button => {
+
+            button.addEventListener("click", function() {
+
+                console.log(
+                    "Opening email client..."
+                );
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
